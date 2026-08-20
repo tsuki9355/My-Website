@@ -1,0 +1,49 @@
+.experience-item {
+  position: relative;
+  display: flex;
+  gap: 1.5rem;
+  padding-left: 2.5rem;
+}
+
+.experience-dot {
+  position: absolute;
+  left: 0.15rem;
+  top: 0.4rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent-frost);
+  box-shadow: 0 0 12px var(--accent-frost);
+}
+
+.experience-card {
+  flex: 1;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.experience-period {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-frost);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.experience-card h3 {
+  margin-top: 0.35rem;
+  font-size: 1.15rem;
+}
+
+.experience-org {
+  color: var(--accent-moon);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.experience-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}

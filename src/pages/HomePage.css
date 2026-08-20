@@ -1,0 +1,84 @@
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  padding-top: 3rem;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.eyebrow {
+  color: var(--accent-frost);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+.hero-text h1 {
+  font-size: 3.2rem;
+  margin-bottom: 1rem;
+}
+
+.hero-bio {
+  max-width: 46ch;
+  font-size: 1.05rem;
+}
+
+.hobby-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+
+.hobby-pill {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: var(--bg-panel-soft);
+  border: 1px solid var(--border-glow);
+  color: var(--text-primary);
+}
+
+.hero-image {
+  width: 260px;
+  max-width: 40vw;
+  filter: drop-shadow(0 0 40px var(--accent-moon-soft));
+}
+
+.hero-image-float {
+  animation: floatY 6s ease-in-out infinite;
+}
+
+@keyframes floatY {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@media (max-width: 700px) {
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding-top: 1.5rem;
+  }
+
+  .hero-bio {
+    max-width: none;
+  }
+
+  .hobby-list {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,116 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  box-sizing: border-box;
+  z-index: 100;
+
+  background: rgba(11, 12, 30, 0.65);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-glow);
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  letter-spacing: 0.02em;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-tab {
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.nav-tab:hover {
+  color: var(--text-primary);
+}
+
+.nav-tab.active {
+  color: var(--accent-frost);
+}
+
+.nav-tab.active::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 2px;
+  height: 2px;
+  background: var(--accent-frost);
+  box-shadow: 0 0 8px var(--accent-frost);
+  border-radius: 2px;
+}
+
+.game-btn {
+  margin-left: 0.75rem;
+}
+
+.exit-btn {
+  border-color: var(--accent-glow);
+  color: var(--accent-glow);
+}
+
+.exit-btn:hover {
+  background: var(--accent-glow);
+  color: var(--bg-deep);
+  box-shadow: 0 0 24px var(--accent-glow-soft);
+}
+
+/* On narrow screens, shrink the horizontal padding/gaps/font-sizes instead
+   of wrapping the nav onto two lines — the navbar is `position: fixed`, so
+   if it doesn't fit, its content gets clipped rather than scrolling. */
+@media (max-width: 560px) {
+  .navbar {
+    padding: 0 0.75rem;
+  }
+  .nav-logo {
+    font-size: 1.05rem;
+  }
+  .nav-links {
+    gap: 0.05rem;
+  }
+  .nav-tab {
+    padding: 0.5rem 0.4rem;
+    font-size: 0.8rem;
+  }
+  .game-btn,
+  .exit-btn {
+    margin-left: 0.4rem;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .nav-tab {
+    padding: 0.5rem 0.3rem;
+    font-size: 0.72rem;
+  }
+  .game-btn,
+  .exit-btn {
+    padding: 0.45rem 0.7rem;
+    font-size: 0.72rem;
+  }
+}

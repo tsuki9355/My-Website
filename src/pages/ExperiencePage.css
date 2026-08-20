@@ -1,0 +1,31 @@
+.page-intro {
+  max-width: 60ch;
+  margin-bottom: 2.5rem;
+}
+
+.page-intro code {
+  color: var(--accent-frost);
+  background: var(--bg-panel-soft);
+  padding: 0.1rem 0.4rem;
+  border-radius: 6px;
+  font-size: 0.9em;
+}
+
+.timeline {
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: calc(0.15rem + 6px);
+  top: 0.6rem;
+  bottom: 2rem;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    var(--accent-frost),
+    var(--accent-moon)
+  );
+  opacity: 0.4;
+}

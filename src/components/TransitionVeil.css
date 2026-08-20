@@ -1,0 +1,19 @@
+.transition-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 1000; /* above the navbar (100) and everything else */
+  background: radial-gradient(
+    circle at 50% 50%,
+    var(--accent-moon) 0%,
+    var(--bg-deep) 75%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition-property: opacity;
+  transition-timing-function: ease;
+}
+
+.transition-veil.visible {
+  opacity: 1;
+  pointer-events: auto;
+}

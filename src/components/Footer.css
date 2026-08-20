@@ -1,0 +1,42 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+  padding: 4rem 1.5rem 3rem;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f0f4ff, #dbe4ff);
+  box-shadow: 0 0 0 rgba(143, 168, 255, 0);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.social-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 18px var(--accent-moon-soft);
+}
+
+.resume-btn {
+  display: inline-block;
+  margin-top: 0.25rem;
+  text-decoration: none;
+}
