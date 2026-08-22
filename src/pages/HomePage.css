@@ -30,14 +30,14 @@
   font-size: 1.05rem;
 }
 
-.hobby-list {
+.skill-list {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
   margin-top: 1.5rem;
 }
 
-.hobby-pill {
+.skill-pill {
   font-size: 0.85rem;
   font-weight: 600;
   padding: 0.5rem 1rem;
@@ -78,7 +78,7 @@
     max-width: none;
   }
 
-  .hobby-list {
+  .skill-list {
     justify-content: center;
   }
 }

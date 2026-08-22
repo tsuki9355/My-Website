@@ -43,6 +43,15 @@ export const projects: Project[] = [
     link: "https://github.com/tsuki9355/Lumi-and-the-Forgotten-Moon",
   },
   {
+    id: "Kenney 2026 Game jam",
+    title: "Guess the Weight",
+    description:
+      "Game created in 48 hours for the Kenney 2026 game jam featuring the theme 'Scale'.",
+    category: "game-jam",
+    tags: ["Unity", "C#", "Physics", "Event-Driven UI"],
+    link: "https://tsuki-0505.itch.io/guess-the-weight",
+  },
+  {
     id: "blender-diorama",
     title: "Cozy Diorama (WIP)",
     description:
