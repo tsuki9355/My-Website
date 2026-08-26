@@ -23,7 +23,7 @@ export const projects: Project[] = [
       "The site you're looking at right now — React + TypeScript, hand-styled, with a game mode in progress.",
     category: "personal",
     tags: ["React", "TypeScript", "CSS", "Blender", "Clip Studio Paint"],
-    link: "https://github.com",
+    link: "https://angus-personal-website.vercel.app/",
   },
   {
     id: "Lumi",

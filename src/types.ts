@@ -18,3 +18,9 @@ export interface ExperienceEntry {
   description: string;
   tags: string[];
 }
+
+export interface Track {
+  id: string;
+  title: string;
+  youtubeId: string;
+}

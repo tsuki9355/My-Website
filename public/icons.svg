@@ -27,4 +27,20 @@
     <circle cx="16.8" cy="6.4" r="1.15" fill="#f0f4ff"/>
     <circle cx="19.3" cy="9" r="1.15" fill="#f0f4ff"/>
   </symbol>
+
+  <!-- Media-control icons for MusicPlayer.tsx. Unlike the brand icons
+       above, these use fill="currentColor" so they pick up whatever CSS
+       `color` is set on the <button> around them (see .mp-btn:hover). -->
+  <symbol id="play-icon" viewBox="0 0 20 20">
+    <path fill="currentColor" d="M6 4.2v11.6a.7.7 0 0 0 1.07.6l9.3-5.8a.7.7 0 0 0 0-1.2l-9.3-5.8A.7.7 0 0 0 6 4.2"/>
+  </symbol>
+  <symbol id="pause-icon" viewBox="0 0 20 20">
+    <path fill="currentColor" d="M5.5 4A1.5 1.5 0 0 0 4 5.5v9A1.5 1.5 0 0 0 5.5 16h1A1.5 1.5 0 0 0 8 14.5v-9A1.5 1.5 0 0 0 6.5 4zM13.5 4A1.5 1.5 0 0 0 12 5.5v9a1.5 1.5 0 0 0 1.5 1.5h1a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 4z"/>
+  </symbol>
+  <symbol id="prev-icon" viewBox="0 0 20 20">
+    <path fill="currentColor" d="M5 4.5a.75.75 0 0 1 .75.75v9.5a.75.75 0 0 1-1.5 0v-9.5A.75.75 0 0 1 5 4.5m11.13.32a.7.7 0 0 1 .37.62v9.16a.7.7 0 0 1-1.07.6l-7.7-4.58a.7.7 0 0 1 0-1.2l7.7-4.58a.7.7 0 0 1 .7-.02"/>
+  </symbol>
+  <symbol id="next-icon" viewBox="0 0 20 20">
+    <path fill="currentColor" d="M15 4.5a.75.75 0 0 0-.75.75v9.5a.75.75 0 0 0 1.5 0v-9.5A.75.75 0 0 0 15 4.5M3.87 4.82a.7.7 0 0 0-.37.62v9.16a.7.7 0 0 0 1.07.6l7.7-4.58a.7.7 0 0 0 0-1.2l-7.7-4.58a.7.7 0 0 0-.7-.02"/>
+  </symbol>
 </svg>

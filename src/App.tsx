@@ -3,6 +3,7 @@ import type { PageId } from "./types";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import TransitionVeil from "./components/TransitionVeil";
+import MusicPlayer from "./components/MusicPlayer";
 import GameScreen from "./components/GameScreen";
 import HomePage from "./pages/HomePage";
 import ProjectsPage from "./pages/ProjectsPage";
@@ -52,6 +53,7 @@ function App() {
       )}
 
       <TransitionVeil visible={isTransitioning} durationMs={TRANSITION_MS} />
+      <MusicPlayer isGameMode={isGameMode} />
     </div>
   );
 }
