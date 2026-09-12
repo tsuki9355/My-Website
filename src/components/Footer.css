@@ -35,8 +35,15 @@
   box-shadow: 0 0 18px var(--accent-moon-soft);
 }
 
+.resume-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.25rem;
+}
+
 .resume-btn {
   display: inline-block;
-  margin-top: 0.25rem;
   text-decoration: none;
 }
