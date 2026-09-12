@@ -26,9 +26,22 @@ function Footer() {
           </a>
         ))}
       </div>
-      <a className="btn btn-primary resume-btn" href="/Angus_Resume.pdf" download="Angus-Chou-Resume.pdf">
-        Download Resume
-      </a>
+      <div className="resume-buttons">
+        <a
+          className="btn btn-primary resume-btn"
+          href="/Angus_Chou_Resume_Software.pdf"
+          download="Angus-Chou-Resume-Software.pdf"
+        >
+          Software Resume
+        </a>
+        <a
+          className="btn btn-primary resume-btn"
+          href="/Angus_Chou_Resume_Game.pdf"
+          download="Angus-Chou-Resume-Game.pdf"
+        >
+          Game Dev Resume
+        </a>
+      </div>
     </footer>
   );
 }
