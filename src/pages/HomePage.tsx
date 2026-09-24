@@ -22,9 +22,9 @@ function HomePage() {
             I'm a third-year <strong>Computer Science </strong> student at the <strong>University of
             British Columbia </strong>. I like building things end-to-end — from
             gameplay code to the little glowing UI details. 
-            My hobbies includes participating in <strong>game jams </strong>,
+            My hobbies include participating in <strong>game jams </strong>,
             making <strong>personal projects </strong>, and <strong>playing games </strong>.
-            Some of my favorite progrmaming languages are
+            Some of my favorite programming languages are
             <strong> C#</strong>, 
             <strong> Java</strong>, 
             <strong> TypeScript</strong>, and 
