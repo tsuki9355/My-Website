@@ -27,7 +27,7 @@ export const projects: Project[] = [
   },
   {
     id: "Lumi",
-    title: "Lumi the Forgotten Moon (WIP)",
+    title: "Lumi the Forgotten Moon",
     description: "A hollow knight inspired 2D platformer game.",
     category: "personal",
     tags: [
@@ -41,6 +41,15 @@ export const projects: Project[] = [
       "Clip Studio Paint Pro",
     ],
     link: "https://github.com/tsuki9355/Lumi-and-the-Forgotten-Moon",
+  },
+  {
+    id: "Vyxxen",
+    title: "Vyxxen Prototype",
+    description:
+      "A Zaxxon inspired game prototype created with Three.js",
+    category: "personal",
+    tags: ["Three.js", "Prompt Engineering", "Agentic Workflow"],
+    link: "https://github.com/tsuki9355/Vyxxen/tree/main/Vyxxen_Prototype",
   },
   {
     id: "Kenney 2026 Game jam",

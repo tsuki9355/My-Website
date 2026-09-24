@@ -5,7 +5,7 @@ export const experience: ExperienceEntry[] = [
     id: "ubc",
     role: "Computer Science Major",
     organization: "University of British Columbia",
-    period: "2023 — Present",
+    period: "2025 — Present",
     description:
       "Third-year student focused on game development and software engineering / development",
     tags: [
@@ -15,6 +15,22 @@ export const experience: ExperienceEntry[] = [
       "Software Engineering",
       "Design Pattern",
       "Pathfiding",
+    ],
+  },
+  {
+    id: "Vertex",
+    role: "Vertex AI Game Development Boot Camp",
+    organization: "Vertex School",
+    period: "September 2026 — Present",
+    description:
+      "Developing 2 playable games from scratch over a 10 week bootcamp by applying Unreal Engine, UEFN, C++, Verse, gameplay architecture, and multiplayer system.",
+    tags: [
+      "Unreal Engine",
+      "UEFN",
+      "C++",
+      "Verse",
+      "Prompt Engineering",
+      "Procedural Content Generation",
     ],
   },
   {
