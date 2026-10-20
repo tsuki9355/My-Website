@@ -48,8 +48,9 @@
 }
 
 .hero-image {
-  width: 260px;
+  width: 300px;
   max-width: 40vw;
+  height: auto;
   filter: drop-shadow(0 0 40px var(--accent-moon-soft));
 }
 

@@ -1,4 +1,3 @@
-import heroImage from "../assets/hero.png";
 import "./HomePage.css";
 
 const Skills = [
@@ -53,8 +52,8 @@ function HomePage() {
         </div>
         <img
           className="hero-image hero-image-float"
-          src={heroImage}
-          alt="A glowing purple floating platform illustration"
+          src="/Lumi-hero.png"
+          alt="Lumi, a chibi witch with long lavender hair and a starry blue hat"
         />
       </div>
     </section>
