@@ -20,15 +20,16 @@ function HomePage() {
           <h1 className="glow-text">Angus Chou</h1>
           <p className="hero-bio">
             I'm a third-year <strong>Computer Science </strong> student at the <strong>University of
-            British Columbia </strong>. I like building things end-to-end — from
-            gameplay code to the little glowing UI details. 
+            British Columbia </strong>. I am an aspiring gameplay / software engineer. 
+            I like building things end-to-end — from gameplay code to the little glowing UI details. 
             My hobbies include participating in <strong>game jams </strong>,
             making <strong>personal projects </strong>, and <strong>playing games </strong>.
             Some of my favorite programming languages are
-            <strong> C#</strong>, 
+            <strong> C++</strong>, 
             <strong> Java</strong>, 
-            <strong> TypeScript</strong>, and 
-            <strong> C++</strong>.
+            <strong> C#</strong>, 
+            <strong> JavaScript</strong>, 
+            <strong> TypeScript</strong>.
           </p>
 
           <div className="skill-list">
