@@ -3,12 +3,23 @@ import "./HomePage.css";
 
 const Skills = [
   "Unity",
+  "Unreal Engine",
+  "C++/C",
+  "Java",
+  "C#",
+  "TypeScript",
+  "JavaScript",
+  "SDLC",
+  "AWS",
+  "Spring-Boot",
+  "TDD",
+  "SQL",
+  "HTML",
   "Object-Oriented Programming",
   "Data Structure & Algorithms",
   "Design Principles",
   "Software development",
   "Software engineering",
-  "Finite State Machines"
 ];
 
 function HomePage() {
