@@ -1,30 +1,120 @@
 .project-card {
-  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.project-thumb {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background:
+    radial-gradient(circle at 30% 20%, var(--accent-moon-soft), transparent 60%),
+    linear-gradient(135deg, #1b1f3b, #2c2550);
+  border-bottom: 1px solid var(--border-glow);
+}
+
+.project-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-thumb-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent-glow);
+  text-shadow: 0 0 24px var(--accent-glow-soft);
+  background-image:
+    linear-gradient(var(--border-glow) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-glow) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-position: center;
+  opacity: 0.85;
+}
+
+.project-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(9, 12, 26, 0.8);
+  border: 1px solid var(--accent-glow-soft);
+  color: var(--accent-glow);
+}
+
+.project-body {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  padding: 1.5rem;
+}
+
+.project-body p {
+  margin: 0;
 }
 
 .project-card h3 {
   color: var(--text-primary);
   font-size: 1.25rem;
+  margin: 0;
 }
 
 .project-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 0.25rem;
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: auto;
+  padding-top: 0.75rem;
 }
 
 .project-link {
-  margin-top: auto;
-  padding-top: 0.5rem;
-  font-weight: 600;
-  color: var(--accent-moon);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f0f4ff, #dbe4ff);
+  color: #121933;
   text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.project-link:hover {
-  color: var(--accent-glow);
+.project-link svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.project-link:hover,
+.project-link:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px var(--accent-moon-soft);
+}
+
+.project-link:focus-visible {
+  outline: 2px solid var(--accent-frost);
+  outline-offset: 2px;
 }
