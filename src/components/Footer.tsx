@@ -37,9 +37,9 @@ function Footer() {
         <a
           className="btn btn-primary resume-btn"
           href="/Angus_Chou_Resume_Game.pdf"
-          download="Angus-Chou-Resume-Game.pdf"
+          download="Angus-Chou-Resume-Gameplay.pdf"
         >
-          Game Dev Resume
+          Gameplay Resume
         </a>
       </div>
     </footer>
