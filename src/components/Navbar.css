@@ -125,17 +125,6 @@
   margin-left: 0.75rem;
 }
 
-.exit-btn {
-  color: var(--accent-glow);
-  box-shadow: inset 0 0 0 1px var(--accent-glow);
-}
-
-.exit-btn:hover,
-.exit-btn:focus-visible {
-  background: var(--accent-glow);
-  color: var(--bg-deep);
-}
-
 /* On narrow screens, shrink the horizontal padding/gaps/font-sizes instead
    of wrapping the nav onto two lines — the navbar is `position: fixed`, so
    if it doesn't fit, its content gets clipped rather than scrolling. */
@@ -165,8 +154,7 @@
   .nav-range-icon {
     display: none;
   }
-  .game-btn,
-  .exit-btn {
+  .game-btn {
     margin-left: 0.35rem;
     padding: 0.5rem 0.7rem;
     font-size: 0.7rem;
@@ -192,8 +180,7 @@
     left: 4px;
     right: 4px;
   }
-  .game-btn,
-  .exit-btn {
+  .game-btn {
     padding: 0.45rem 0.55rem;
     font-size: 0.65rem;
     letter-spacing: 0.02em;

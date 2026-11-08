@@ -1,0 +1,375 @@
+@property --gc-gap {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 4px;
+}
+
+.game-mode {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  overflow: hidden;
+  background: #03050c;
+  font-family: var(--font-display);
+  user-select: none;
+}
+
+.game-mode.is-locked {
+  cursor: none;
+}
+
+.game-canvas {
+  position: absolute !important;
+  inset: 0;
+}
+
+/* ---------- HUD ---------- */
+
+.game-hud {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  padding: clamp(1rem, 2.5vw, 2rem);
+}
+
+.game-hud-id {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.5rem 0.9rem;
+  width: fit-content;
+  background: linear-gradient(90deg, rgba(3, 5, 12, 0.7), transparent);
+  border-left: 3px solid var(--accent-frost);
+}
+
+.game-hud-sub {
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.game-scoreboard {
+  position: absolute;
+  top: clamp(1rem, 2.5vw, 2rem);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1.75rem;
+  padding: 0.6rem 1.5rem;
+  background: rgba(3, 5, 12, 0.72);
+  border: 1px solid var(--border-glow);
+  border-bottom: 2px solid var(--accent-frost);
+}
+
+.game-scoreboard > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 64px;
+}
+
+.game-stat-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.game-stat-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent-frost);
+  text-shadow: 0 0 12px var(--accent-frost-soft);
+}
+
+.game-countdown-value {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text-primary);
+  text-shadow: 0 0 16px var(--accent-frost);
+}
+
+.game-prompt,
+.game-hint {
+  position: absolute;
+  left: 50%;
+  top: 62%;
+  transform: translateX(-50%);
+  margin: 0;
+  white-space: nowrap;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.9);
+}
+
+.game-hint {
+  top: auto;
+  bottom: clamp(1.25rem, 4vh, 2.5rem);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+kbd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.8em;
+  padding: 0.15em 0.45em;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85em;
+  color: var(--bg-deep);
+  background: var(--accent-frost);
+  clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
+}
+
+.game-results {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(420px, 90vw);
+  padding: 1.4rem 1.6rem;
+  text-align: center;
+}
+
+.game-results:hover {
+  transform: translateX(-50%);
+}
+
+.game-results dl {
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem 0 0.5rem;
+}
+
+.game-results dt {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.game-results dd {
+  margin: 0.2rem 0 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-frost);
+  font-variant-numeric: tabular-nums;
+}
+
+.game-results p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+}
+
+.game-new-best {
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-lock);
+  text-shadow: 0 0 12px var(--accent-lock-soft);
+}
+
+/* ---------- Crosshair ---------- */
+
+.game-crosshair {
+  --gc-color: var(--accent-frost);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  transition: --gc-gap 150ms ease-out;
+}
+
+.game-mode:not(.is-locked) .game-crosshair {
+  display: none;
+}
+
+.game-crosshair.firing {
+  --gc-gap: 10px;
+  transition: --gc-gap 40ms ease-out;
+}
+
+.gc-line,
+.gc-dot {
+  position: absolute;
+  background: var(--gc-color);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6);
+}
+
+.gc-line {
+  width: 2px;
+  height: 7px;
+  left: -1px;
+  top: -3.5px;
+}
+
+.gc-top {
+  transform: translateY(calc(-3.5px - var(--gc-gap)));
+}
+.gc-bottom {
+  transform: translateY(calc(3.5px + var(--gc-gap)));
+}
+.gc-left {
+  transform: translateX(calc(-3.5px - var(--gc-gap))) rotate(90deg);
+}
+.gc-right {
+  transform: translateX(calc(3.5px + var(--gc-gap))) rotate(90deg);
+}
+
+.gc-dot {
+  width: 2px;
+  height: 2px;
+  left: -1px;
+  top: -1px;
+}
+
+.gc-hit {
+  position: absolute;
+  opacity: 0;
+}
+
+.gc-hit::before,
+.gc-hit::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  left: -12px;
+  top: -1px;
+  background: linear-gradient(90deg, #fff 0 32%, transparent 32% 68%, #fff 68%);
+  filter: drop-shadow(0 0 3px var(--accent-lock));
+}
+
+.gc-hit::before {
+  transform: rotate(45deg);
+}
+.gc-hit::after {
+  transform: rotate(-45deg);
+}
+
+.game-crosshair.hit .gc-hit {
+  animation: gc-hitmarker 280ms ease-out;
+}
+
+@keyframes gc-hitmarker {
+  0% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+/* ---------- Pause / intro menu ---------- */
+
+.game-overlay,
+.game-mode-notice {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(3, 5, 12, 0.55);
+  backdrop-filter: blur(3px);
+}
+
+.game-menu {
+  width: min(460px, 100%);
+  padding: 1.75rem 1.75rem 1.5rem;
+}
+
+.game-menu:hover {
+  transform: none;
+}
+
+.game-menu h2 {
+  margin: 0.7rem 0 1rem;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.game-menu p {
+  font-family: var(--font-body);
+}
+
+.game-controls {
+  list-style: none;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem 1rem;
+}
+
+.game-controls li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.game-controls kbd {
+  min-width: 3.6em;
+}
+
+.game-setting {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.game-setting input {
+  flex: 1;
+  accent-color: var(--accent-frost);
+}
+
+.game-setting output {
+  min-width: 2.6em;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent-frost);
+}
+
+.game-menu-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.game-menu-actions .btn-primary {
+  flex: 1 1 100%;
+}
+
+.game-menu-actions .btn-ghost {
+  flex: 1;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
