@@ -1,15 +1,15 @@
 .project-card {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 }
 
 .project-thumb {
   position: relative;
   aspect-ratio: 16 / 10;
+  overflow: hidden;
   background:
-    radial-gradient(circle at 30% 20%, var(--accent-moon-soft), transparent 60%),
-    linear-gradient(135deg, #1b1f3b, #2c2550);
+    radial-gradient(circle at 30% 20%, rgba(111, 224, 255, 0.18), transparent 60%),
+    linear-gradient(135deg, #0b1430, #1a1840);
   border-bottom: 1px solid var(--border-glow);
 }
 
@@ -18,6 +18,24 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-thumb img {
+  transform: scale(1.04);
+}
+
+/* Faint scanlines over every thumbnail so screenshots read as HUD feeds. */
+.project-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(3, 5, 12, 0.18) 0 1px,
+    transparent 1px 3px
+  );
 }
 
 .project-thumb-placeholder {
@@ -26,31 +44,32 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: var(--font-display);
   font-size: 3rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--accent-glow);
-  text-shadow: 0 0 24px var(--accent-glow-soft);
+  letter-spacing: 0.12em;
+  color: var(--accent-frost);
+  text-shadow: 0 0 24px var(--accent-frost-soft);
   background-image:
     linear-gradient(var(--border-glow) 1px, transparent 1px),
     linear-gradient(90deg, var(--border-glow) 1px, transparent 1px);
   background-size: 28px 28px;
   background-position: center;
-  opacity: 0.85;
 }
 
 .project-badge {
   position: absolute;
+  z-index: 1;
   top: 0.75rem;
-  left: 0.75rem;
-  font-size: 0.7rem;
+  right: 0.75rem;
+  font-family: var(--font-display);
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   padding: 0.3rem 0.65rem;
-  border-radius: 999px;
-  background: rgba(9, 12, 26, 0.8);
-  border: 1px solid var(--accent-glow-soft);
+  background: rgba(3, 5, 12, 0.85);
+  border: 1px solid var(--accent-glow);
   color: var(--accent-glow);
 }
 
@@ -59,23 +78,26 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  padding: 1.5rem;
+  padding: 1.35rem 1.5rem 1.5rem;
 }
 
 .project-body p {
   margin: 0;
+  font-size: 0.95rem;
 }
 
 .project-card h3 {
   color: var(--text-primary);
   font-size: 1.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
   margin: 0;
 }
 
 .project-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 
 .project-links {
@@ -90,16 +112,20 @@
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  font-size: 0.85rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
   font-weight: 700;
-  padding: 0.45rem 0.95rem;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #f0f4ff, #dbe4ff);
-  color: #121933;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.5rem 0.95rem;
+  background: #e2f6ff;
+  color: #06101f;
   text-decoration: none;
+  clip-path: polygon(7px 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%, 0 7px);
   transition:
     transform 0.2s ease,
-    box-shadow 0.2s ease;
+    background 0.2s ease,
+    filter 0.2s ease;
 }
 
 .project-link svg {
@@ -111,10 +137,6 @@
 .project-link:hover,
 .project-link:focus-visible {
   transform: translateY(-2px);
-  box-shadow: 0 0 18px var(--accent-moon-soft);
-}
-
-.project-link:focus-visible {
-  outline: 2px solid var(--accent-frost);
-  outline-offset: 2px;
+  background: var(--accent-frost);
+  filter: drop-shadow(0 0 8px var(--accent-frost-soft));
 }

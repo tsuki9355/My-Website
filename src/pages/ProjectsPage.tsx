@@ -2,6 +2,7 @@ import { useState } from "react";
 import { projects, projectCategories } from "../data/projects";
 import type { ProjectCategory } from "../types";
 import ProjectCard from "../components/ProjectCard";
+import PageHeader from "../components/PageHeader";
 import "./ProjectsPage.css";
 
 type CategoryFilter = ProjectCategory | "all";
@@ -16,14 +17,14 @@ function ProjectsPage() {
 
   return (
     <section className="page-view animate-fade">
-      <h1 className="glow-text">My Projects</h1>
-      <p className="page-intro">
+      <PageHeader index="02" label="Projects" title="My Projects">
         I have categorized my projects into different categories below to showcase my capabilities!
-      </p>
+      </PageHeader>
 
-      <div className="category-filters">
+      <div className="category-filters" role="group" aria-label="Filter projects by category">
         <button
           className={`category-tab ${activeCategory === "all" ? "active" : ""}`}
+          aria-pressed={activeCategory === "all"}
           onClick={() => setActiveCategory("all")}
         >
           All
@@ -32,6 +33,7 @@ function ProjectsPage() {
           <button
             key={category.id}
             className={`category-tab ${activeCategory === category.id ? "active" : ""}`}
+            aria-pressed={activeCategory === category.id}
             onClick={() => setActiveCategory(category.id)}
           >
             {category.label}

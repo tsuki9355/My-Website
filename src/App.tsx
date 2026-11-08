@@ -53,16 +53,15 @@ function App() {
         </Suspense>
       ) : (
         <>
-          <div className="ambient-glow">
-            <span />
-            <span />
-            <span />
-          </div>
+          <div className="ambient-glow" aria-hidden="true" />
 
           <Navbar
             activePage={activePage}
             isGameMode={isGameMode}
-            onNavigate={setActivePage}
+            onNavigate={(page) => {
+              setActivePage(page);
+              window.scrollTo(0, 0);
+            }}
             onEnterGame={() => transition(() => setIsGameMode(true))}
             onReturnToRange={returnToRange}
           />

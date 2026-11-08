@@ -10,6 +10,7 @@ const SOCIAL_LINKS = [
 function Footer() {
   return (
     <footer className="footer">
+      <span className="hud-label">Contact &amp; Resume</span>
       <div className="footer-socials">
         {SOCIAL_LINKS.map((social) => (
           <a
@@ -28,14 +29,14 @@ function Footer() {
       </div>
       <div className="resume-buttons">
         <a
-          className="btn btn-primary resume-btn"
+          className="btn btn-primary"
           href="/Angus_Chou_Resume_Software.pdf"
           download="Angus-Chou-Resume-Software.pdf"
         >
           Software Resume
         </a>
         <a
-          className="btn btn-primary resume-btn"
+          className="btn btn-ghost"
           href="/Angus_Chou_Resume_Game.pdf"
           download="Angus-Chou-Resume-Gameplay.pdf"
         >

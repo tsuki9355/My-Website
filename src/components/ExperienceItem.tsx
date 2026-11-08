@@ -7,13 +7,20 @@ interface ExperienceItemProps {
 
 function ExperienceItem({ entry }: ExperienceItemProps) {
   return (
-    <div className="experience-item">
-      <div className="experience-dot" />
-      <div className="experience-card card">
+    <li className="experience-item">
+      <span className="experience-marker" aria-hidden="true" />
+      <article className="experience-card card">
         <span className="experience-period">{entry.period}</span>
         <h3>{entry.role}</h3>
         <p className="experience-org">{entry.organization}</p>
-        <p>{entry.description}</p>
+        <p className="experience-desc">{entry.description}</p>
+        {entry.highlights && (
+          <ul className="experience-highlights">
+            {entry.highlights.map((point) => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
+        )}
 
         <div className="experience-tags">
           {entry.tags.map((tag) => (
@@ -22,8 +29,8 @@ function ExperienceItem({ entry }: ExperienceItemProps) {
             </span>
           ))}
         </div>
-      </div>
-    </div>
+      </article>
+    </li>
   );
 }
 

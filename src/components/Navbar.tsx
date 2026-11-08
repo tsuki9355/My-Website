@@ -19,7 +19,9 @@ function Navbar({ activePage, isGameMode, onNavigate, onEnterGame, onReturnToRan
   return (
     <nav className="navbar">
       <button className="nav-logo glow-text" onClick={onReturnToRange} title="Back to the firing range">
-        Angus
+        <span className="nav-logo-text">
+          Angus<span className="nav-logo-last"> Chou</span>
+        </span>
       </button>
 
       <div className="nav-links">

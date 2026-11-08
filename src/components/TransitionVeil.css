@@ -2,11 +2,9 @@
   position: fixed;
   inset: 0;
   z-index: 1000; /* above the navbar (100) and everything else */
-  background: radial-gradient(
-    circle at 50% 50%,
-    var(--accent-moon) 0%,
-    var(--bg-deep) 75%
-  );
+  background:
+    repeating-linear-gradient(to bottom, rgba(111, 224, 255, 0.06) 0 1px, transparent 1px 3px),
+    radial-gradient(circle at 50% 50%, rgba(111, 224, 255, 0.45) 0%, var(--bg-deep) 70%);
   opacity: 0;
   pointer-events: none;
   transition-property: opacity;

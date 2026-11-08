@@ -26,6 +26,7 @@ export interface ExperienceEntry {
   organization: string;
   period: string;
   description: string;
+  highlights?: string[];
   tags: string[];
 }
 

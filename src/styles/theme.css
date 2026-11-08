@@ -13,27 +13,40 @@
 }
 
 :root {
-  --bg-deep: #090c1a;
-  --bg-panel: #121933;
-  --bg-panel-soft: rgba(255, 255, 255, 0.04);
+  --bg-deep: #03050c;
+  --bg-panel: rgba(8, 14, 32, 0.82);
+  --bg-panel-solid: #0a1124;
+  --bg-panel-soft: rgba(111, 224, 255, 0.05);
 
+  --accent-frost: #6fe0ff;
+  --accent-frost-soft: rgba(111, 224, 255, 0.3);
   --accent-moon: #8fa8ff;
   --accent-moon-soft: rgba(143, 168, 255, 0.35);
-  --accent-frost: #8fe3ff;
-  --accent-frost-soft: rgba(143, 227, 255, 0.3);
   --accent-glow: #cbb8ff;
   --accent-glow-soft: rgba(203, 184, 255, 0.4);
+  --accent-lock: #ff6b81;
+  --accent-lock-soft: rgba(255, 107, 129, 0.35);
 
-  --text-primary: #eef1fb;
-  --text-muted: #9aa3c9;
+  --text-primary: #e8f4ff;
+  --text-muted: #91a4c4;
 
-  --border-glow: rgba(143, 168, 255, 0.25);
-  --radius-md: 16px;
-  --radius-lg: 24px;
+  --border-glow: rgba(111, 224, 255, 0.22);
+  --radius-md: 4px;
+  --radius-lg: 6px;
   --shadow-glow-moon: 0 0 24px var(--accent-moon-soft);
   --shadow-glow-frost: 0 0 24px var(--accent-frost-soft);
 
-  --font-body: "Quicksand", sans-serif;
+  --cut: 10px;
+  --clip-cut: polygon(
+    var(--cut) 0,
+    100% 0,
+    100% calc(100% - var(--cut)),
+    calc(100% - var(--cut)) 100%,
+    0 100%,
+    0 var(--cut)
+  );
+
+  --font-body: "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", sans-serif;
   --font-display: "Chakra Petch", "Segoe UI", sans-serif;
 }
 
@@ -58,153 +71,231 @@ body {
 h1,
 h2,
 h3 {
+  font-family: var(--font-display);
   font-weight: 700;
   margin: 0 0 0.5rem;
+  letter-spacing: 0.02em;
 }
 
 p {
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--text-muted);
+}
+
+strong {
+  color: var(--text-primary);
+  font-weight: 600;
 }
 
 a {
   color: inherit;
 }
 
-.glow-text {
-  text-shadow:
-    0 0 18px var(--accent-moon-soft),
-    0 0 2px rgba(255, 255, 255, 0.6);
+::selection {
+  background: var(--accent-frost);
+  color: var(--bg-deep);
 }
 
+:focus-visible {
+  outline: 2px solid var(--accent-frost);
+  outline-offset: 3px;
+}
+
+.glow-text {
+  text-shadow:
+    0 0 18px var(--accent-frost-soft),
+    0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+/* ---------- HUD panel ----------
+   Dark glass with cyan corner brackets that lock on (turn pink) on hover,
+   mirroring the targets in the firing range. */
 .card {
+  position: relative;
   background: var(--bg-panel);
   border: 1px solid var(--border-glow);
-  border-radius: var(--radius-md);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
+  border-radius: 2px;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.45);
   transition:
     transform 0.25s ease,
-    box-shadow 0.25s ease;
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.card::before,
+.card::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+  border-color: var(--accent-frost);
+  border-style: solid;
+  border-width: 0;
+  transition:
+    border-color 0.2s ease,
+    width 0.2s ease,
+    height 0.2s ease;
+}
+
+.card::before {
+  top: -1px;
+  left: -1px;
+  border-top-width: 2px;
+  border-left-width: 2px;
+}
+
+.card::after {
+  right: -1px;
+  bottom: -1px;
+  border-right-width: 2px;
+  border-bottom-width: 2px;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-glow-moon);
+  transform: translateY(-3px);
+  border-color: rgba(111, 224, 255, 0.4);
+  box-shadow:
+    0 6px 30px rgba(0, 0, 0, 0.45),
+    0 0 22px rgba(111, 224, 255, 0.12);
 }
 
+.card:hover::before,
+.card:hover::after {
+  width: 24px;
+  height: 24px;
+  border-color: var(--accent-lock);
+}
+
+/* Section label above a page title, e.g. "02 // PROJECTS". */
+.hud-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--accent-frost);
+}
+
+.hud-label::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background: var(--accent-frost);
+  box-shadow: 0 0 8px var(--accent-frost);
+}
+
+/* ---------- Buttons ---------- */
+
 .btn {
-  font-family: inherit;
-  font-weight: 600;
-  font-size: 0.95rem;
-  border-radius: 999px;
-  padding: 0.6rem 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.65rem 1.4rem;
   border: none;
   cursor: pointer;
+  clip-path: var(--clip-cut);
   transition:
     transform 0.2s ease,
-    box-shadow 0.2s ease,
+    filter 0.2s ease,
     background-color 0.2s ease,
     color 0.2s ease;
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent-moon), var(--accent-glow));
-  color: white;
-  box-shadow: 0 0 16px var(--accent-moon-soft);
+  background: var(--accent-frost);
+  color: var(--bg-deep);
 }
 
-.btn-primary:hover {
+/* clip-path hides the focus outline, so focus shares the hover treatment. */
+.btn-primary:hover,
+.btn-primary:focus-visible {
   transform: translateY(-2px);
-  box-shadow: 0 0 28px var(--accent-moon-soft);
+  filter: drop-shadow(0 0 10px var(--accent-frost)) brightness(1.08);
 }
 
 .btn-ghost {
-  background: transparent;
-  border: 2px solid var(--accent-frost);
+  background: var(--bg-panel-soft);
   color: var(--accent-frost);
+  box-shadow: inset 0 0 0 1px var(--accent-frost);
 }
 
-.btn-ghost:hover {
+.btn-ghost:hover,
+.btn-ghost:focus-visible {
   background: var(--accent-frost);
   color: var(--bg-deep);
-  box-shadow: var(--shadow-glow-frost);
 }
 
 .tag-pill {
-  font-size: 0.75rem;
-  font-weight: 600;
-  padding: 0.25rem 0.7rem;
-  border-radius: 999px;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: 0.22rem 0.6rem;
+  border-radius: 2px;
   background: var(--bg-panel-soft);
   border: 1px solid var(--border-glow);
   color: var(--accent-frost);
 }
 
+/* ---------- Backdrop ----------
+   A faint grid that echoes the range floor, fading out toward the edges. */
 .ambient-glow {
   position: fixed;
   inset: 0;
   z-index: -1;
   overflow: hidden;
   pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 45% at 15% 0%, rgba(143, 168, 255, 0.16), transparent 70%),
+    radial-gradient(ellipse 50% 40% at 90% 100%, rgba(111, 224, 255, 0.12), transparent 70%);
 }
 
-.ambient-glow span {
+.ambient-glow::before {
+  content: "";
   position: absolute;
-  border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.5;
-  animation: drift 22s ease-in-out infinite;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(111, 224, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(111, 224, 255, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 85%);
 }
 
-.ambient-glow span:nth-child(1) {
-  width: 420px;
-  height: 420px;
-  background: var(--accent-moon);
-  top: -12%;
-  left: -8%;
-  animation-duration: 24s;
+.ambient-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.015) 0 1px,
+    transparent 1px 3px
+  );
 }
 
-.ambient-glow span:nth-child(2) {
-  width: 360px;
-  height: 360px;
-  background: var(--accent-frost);
-  bottom: -15%;
-  right: -6%;
-  animation-duration: 28s;
-  animation-delay: -6s;
-}
-
-.ambient-glow span:nth-child(3) {
-  width: 300px;
-  height: 300px;
-  background: var(--accent-glow);
-  top: 35%;
-  right: 20%;
-  animation-duration: 20s;
-  animation-delay: -3s;
-}
-
-@keyframes drift {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(40px, -30px) scale(1.12);
-  }
-}
+/* ---------- Layout ---------- */
 
 .web-content {
-  padding-top: 96px; /* clears the fixed 72px navbar + breathing room */
-  max-width: 900px;
+  padding-top: 104px; /* clears the fixed 72px navbar + breathing room */
+  max-width: 960px;
   margin: 0 auto;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
 }
 
 .page-view {
-  min-height: calc(100vh - 96px - 160px); /* fills the screen so the footer doesn't ride up on short pages */
+  min-height: calc(100vh - 104px - 160px); /* fills the screen so the footer doesn't ride up on short pages */
   padding-bottom: 3rem;
 }
 
@@ -228,4 +319,14 @@ a {
 
 .animate-fade {
   animation: fadeInUp 0.5s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade {
+    animation: none;
+  }
+  .card,
+  .card:hover {
+    transform: none;
+  }
 }

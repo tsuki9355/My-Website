@@ -1,49 +1,100 @@
 .experience-item {
   position: relative;
-  display: flex;
-  gap: 1.5rem;
   padding-left: 2.5rem;
+  margin-bottom: 1.75rem;
 }
 
-.experience-dot {
+/* Diamond marker on the timeline rail. */
+.experience-marker {
   position: absolute;
-  left: 0.15rem;
-  top: 0.4rem;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--accent-frost);
-  box-shadow: 0 0 12px var(--accent-frost);
+  left: 2px;
+  top: 1.35rem;
+  width: 12px;
+  height: 12px;
+  transform: rotate(45deg);
+  background: var(--bg-deep);
+  border: 2px solid var(--accent-frost);
+  box-shadow: 0 0 10px var(--accent-frost);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.experience-item:hover .experience-marker {
+  background: var(--accent-lock);
+  border-color: var(--accent-lock);
+  box-shadow: 0 0 12px var(--accent-lock);
 }
 
 .experience-card {
-  flex: 1;
-  padding: 1.5rem 1.75rem;
-  margin-bottom: 2rem;
+  padding: 1.35rem 1.6rem 1.5rem;
 }
 
 .experience-period {
-  font-size: 0.8rem;
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
   font-weight: 700;
-  color: var(--accent-frost);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--bg-deep);
+  background: var(--accent-frost);
+  padding: 0.2rem 0.6rem;
+  clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+}
+
+.experience-card h3 {
+  margin: 0.75rem 0 0.15rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
-.experience-card h3 {
-  margin-top: 0.35rem;
-  font-size: 1.15rem;
+.experience-org {
+  margin: 0 0 0.6rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--accent-glow);
 }
 
-.experience-org {
-  color: var(--accent-moon);
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+.experience-desc {
+  margin: 0;
+}
+
+.experience-highlights {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.experience-highlights li {
+  position: relative;
+  padding-left: 1.25rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* Small cyan diamond bullets to match the timeline markers. */
+.experience-highlights li::before {
+  content: "";
+  position: absolute;
+  left: 0.15rem;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  transform: rotate(45deg);
+  background: var(--accent-frost);
+  box-shadow: 0 0 6px var(--accent-frost);
 }
 
 .experience-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.75rem;
+  gap: 0.4rem;
+  margin-top: 0.9rem;
 }

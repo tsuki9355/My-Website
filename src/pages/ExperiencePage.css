@@ -1,31 +1,18 @@
-.page-intro {
-  max-width: 60ch;
-  margin-bottom: 2.5rem;
-}
-
-.page-intro code {
-  color: var(--accent-frost);
-  background: var(--bg-panel-soft);
-  padding: 0.1rem 0.4rem;
-  border-radius: 6px;
-  font-size: 0.9em;
-}
-
 .timeline {
   position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
+/* The rail the timeline markers sit on. */
 .timeline::before {
   content: "";
   position: absolute;
-  left: calc(0.15rem + 6px);
-  top: 0.6rem;
+  left: 7px;
+  top: 0.75rem;
   bottom: 2rem;
   width: 2px;
-  background: linear-gradient(
-    to bottom,
-    var(--accent-frost),
-    var(--accent-moon)
-  );
-  opacity: 0.4;
+  background: linear-gradient(to bottom, var(--accent-frost), rgba(111, 224, 255, 0.08));
+  box-shadow: 0 0 8px var(--accent-frost-soft);
 }
