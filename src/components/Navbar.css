@@ -17,11 +17,38 @@
 }
 
 .nav-logo {
+  font-family: inherit;
   font-weight: 700;
   font-size: 1.3rem;
   color: var(--text-primary);
+  background: none;
+  border: none;
+  padding: 0;
   cursor: pointer;
   letter-spacing: 0.02em;
+}
+
+.nav-range {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Small crosshair glyph drawn with borders. */
+.nav-range-icon {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+}
+
+.nav-range-icon::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: currentColor;
 }
 
 .nav-links {
@@ -100,6 +127,10 @@
     margin-left: 0.4rem;
     padding: 0.5rem 0.9rem;
     font-size: 0.8rem;
+    white-space: nowrap;
+  }
+  .nav-range-icon {
+    display: none;
   }
 }
 

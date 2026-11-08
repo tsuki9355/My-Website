@@ -6,38 +6,29 @@ interface NavbarProps {
   isGameMode: boolean;
   onNavigate: (page: PageId) => void;
   onEnterGame: () => void;
-  onExitGame: () => void;
+  onReturnToRange: () => void;
 }
 
 const NAV_ITEMS: { id: PageId; label: string }[] = [
-  { id: "home", label: "Home" },
+  { id: "home", label: "About" },
   { id: "projects", label: "Projects" },
   { id: "experience", label: "Experience" },
 ];
 
-
-function Navbar({
-  activePage,
-  isGameMode,
-  onNavigate,
-  onEnterGame,
-  onExitGame,
-}: NavbarProps) {
+function Navbar({ activePage, isGameMode, onNavigate, onEnterGame, onReturnToRange }: NavbarProps) {
   return (
     <nav className="navbar">
-      <div
-        className="nav-logo glow-text"
-        onClick={() => {
-          if (isGameMode) onExitGame();
-          onNavigate("home");
-        }}
-      >
+      <button className="nav-logo glow-text" onClick={onReturnToRange} title="Back to the firing range">
         Angus
-      </div>
+      </button>
 
       <div className="nav-links">
         {!isGameMode ? (
           <>
+            <button className="nav-tab nav-range" onClick={onReturnToRange}>
+              <span className="nav-range-icon" aria-hidden="true" />
+              Range
+            </button>
             {NAV_ITEMS.map((item) => (
               <button
                 key={item.id}
@@ -53,7 +44,7 @@ function Navbar({
             </button>
           </>
         ) : (
-          <button className="btn btn-ghost exit-btn" onClick={onExitGame}>
+          <button className="btn btn-ghost exit-btn" onClick={onReturnToRange}>
             Exit Game
           </button>
         )}
