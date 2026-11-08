@@ -114,7 +114,9 @@ function StationSign() {
 }
 
 // Spinning diamond above the console so it's easy to find from across the range.
+// Hidden once you're at the console, where it would hang over the top of the view.
 function Beacon() {
+  const { nearStation } = useGridshot();
   const diamond = useRef<THREE.Mesh>(null!);
   useFrame((state) => {
     const t = state.clock.elapsedTime;
@@ -122,7 +124,7 @@ function Beacon() {
     diamond.current.position.y = 2.35 + Math.sin(t * 2) * 0.06;
   });
   return (
-    <mesh ref={diamond}>
+    <mesh ref={diamond} visible={!nearStation}>
       <octahedronGeometry args={[0.13, 0]} />
       <meshBasicMaterial color={CYAN} toneMapped={false} />
     </mesh>
