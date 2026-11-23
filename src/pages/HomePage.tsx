@@ -43,7 +43,9 @@ function HomePage() {
               <strong>University of British Columbia</strong>. I am an aspiring gameplay / software
               engineer. I like building things end-to-end — from gameplay code to the little glowing
               UI details. My hobbies include participating in <strong>game jams</strong>, making{" "}
-              <strong>personal projects</strong>, and <strong>playing games</strong>. Some of my
+              <strong>personal projects</strong>, and <strong>playing games</strong>. Some of my favorite
+              games are <strong>Valorant</strong>, <strong>League of Legends</strong>, <strong>Legend of the Zelda</strong>,
+               and <strong>Claire Obscure Expedition 33</strong>. Some of my
               favorite programming languages are <strong>C++</strong>, <strong>Java</strong>,{" "}
               <strong>C#</strong>, <strong>JavaScript</strong>, and <strong>TypeScript</strong>.
             </p>
